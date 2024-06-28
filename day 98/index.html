@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+    <title>Fetch Examples</title>
+</head>
+<body>
+    <div id="data"></div>
+    <img id="image" width=200px alt="Fetched Image">
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        // 1. Simple Fetch Request
+        fetch('https://cat-fact.herokuapp.com/facts')
+            .then(response => response.json())
+            .then(console.log)
+            .catch(console.error);
+
+        // 2. Fetch with Then
+        fetch('https://cat-fact.herokuapp.com/facts')
+            .then(response => response.json())
+            .then(console.log)
+            .catch(console.error);
+
+        // 3. Handle Errors with Catch
+        fetch('https://cat-fact.herokuapp.com/facts')
+            .then(response => response.json())
+            .catch(console.error);
+
+        // 4. Finally Block
+        fetch('https://cat-fact.herokuapp.com/facts')
+            .then(response => response.json())
+            .then(console.log)
+            .catch(console.error)
+            .finally(() => console.log('Fetch request completed.'));
+
+        // 5. Fetch and Display
+        fetch('https://cat-fact.herokuapp.com/facts')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('data').innerHTML = `<h2>${data.title}</h2><p>${data.body}</p>`;
+            })
+            .catch(console.error);
+
+        // 6. Chaining Multiple Then
+        fetch('https://cat-fact.herokuapp.com/facts')
+            .then(response => response.json())
+            .then(data => data.slice(0, 5))
+            .then(posts => posts.forEach(post => console.log(post.title)))
+            .catch(console.error);
+
+        // 7. Fetching Image
+        fetch('https://cataas.com/cat')
+            .then(response => response.blob())
+            .then(blob => {
+                document.getElementById('image').src = URL.createObjectURL(blob);
+            })
+            .catch(console.error);
+
+        // 8. Delayed Fetch Request
+        setTimeout(() => {
+            fetch('https://cat-fact.herokuapp.com/facts')
+                .then(response => response.json())
+                .then(console.log)
+                .catch(console.error);
+        }, 3000); // Delay of 3 seconds
+
+        // 9. Fetch and Delay JSON Parsing
+        fetch('https://cat-fact.herokuapp.com/facts')
+            .then(response => new Promise(resolve => setTimeout(() => resolve(response.json()), 2000)))
+            .then(console.log)
+            .catch(console.error);
+
+        // 10. Chained Delayed Fetch
+        fetch('https://cat-fact.herokuapp.com/facts')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                return new Promise(resolve => setTimeout(() => resolve(fetch('https://cat-fact.herokuapp.com/facts')), 2000));
+            })
+            .then(response => response.json())
+            .then(console.log)
+            .catch(console.error);
+
+        // 11. Delayed Error Handling
+        fetch('https://cat-fact.herokuapp.com/facts')
+            .then(response => response.json())
+            .catch(error => setTimeout(() => console.error('Error fetching data:', error), 2000));
+
+        // 12. Completion Log with Delay
+        fetch('https://cat-fact.herokuapp.com/facts')
+            .then(response => response.json())
+            .then(console.log)
+            .catch(console.error)
+            .finally(() => setTimeout(() => console.log('Fetch request completed.'), 2000));
+
+        // 13. Fetch and Alert
+        fetch('https://cat-fact.herokuapp.com/facts')
+            .then(response => response.json())
+            .then(data => setTimeout(() => alert(JSON.stringify(data)), 2000))
+            .catch(console.error);
+
+        // 14. Fetch and Conditional Display
+        fetch('https://cat-fact.herokuapp.com/facts')
+            .then(response => response.json())
+            .then(data => setTimeout(() => {
+                if (data.id === 1) {
+                    document.getElementById('data').innerHTML = `<h2>${data.title}</h2><p>${data.body}</p>`;
+                }
+            }, 2000))
+            .catch(console.error);
+
+        // 15. Fetch and Form Submission
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const data = Object.fromEntries(new FormData(this).entries());
+            setTimeout(() => {
+                fetch('https://cat-fact.herokuapp.com/facts', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(console.log)
+                .catch(console.error);
+            }, 2000); 
+        });
+    </script>
+</body>
+</html>
