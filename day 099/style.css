@@ -1,0 +1,120 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 800px;
+    width: 100%;
+}
+
+.calculator, .results {
+    padding: 30px;
+    width: 50%;
+}
+
+.calculator {
+    border-right: 1px solid #e6e6e6;
+}
+
+.calculator h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#clear-all {
+    text-align: right;
+    display: block;
+    color: #007bff;
+    margin-bottom: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.toggle-btn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-btn.active {
+    background-color: #cddc39;
+    color: #333;
+}
+
+.calculate-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #cddc39;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.calculate-btn:hover {
+    background-color: #afb42b;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0d324d;
+    color: #fff;
+}
+
+.results h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.results p {
+    margin: 5px 0;
+    font-size: 18px;
+    text-align: center;
+}
+
+.results img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}

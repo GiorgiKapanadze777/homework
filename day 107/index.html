@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- React and ReactDOM CDN links -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel CDN link to compile JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <!-- Root element where React will render the component -->
+  <div id="root"></div>
+
+  <script type="text/babel">
+    // React: A JavaScript library for building user interfaces
+    // ReactDOM: A package that provides DOM-specific methods to be used at the top level of a web app
+    // JSX: A syntax extension for JavaScript that looks similar to XML or HTML
+
+    // Function component that returns JSX
+    function App() {
+      // JSX code to render a simple message
+      return (
+        <div>
+          <h1>Hello, React!</h1>
+          <p>Welcome to the React world!</p>
+        </div>
+      );
+    }
+
+    // Render the App component into the div with id "root"
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
