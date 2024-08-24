@@ -1,0 +1,32 @@
+.news-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.news-article {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.news-article h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.news-article p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.news-article a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.news-article a:hover {
+  text-decoration: underline;
+}
